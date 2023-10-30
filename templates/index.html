@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Fashion MNIST Image Classification</h1>
+    <form method="POST" action="/predict" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result">
+        {% if prediction %}
+            <p>Prediction: {{ prediction }}</p>
+            <img src="{{ image }}" alt="Input Image">
+        {% endif %}
+    </div>
+</body>
+</html>
